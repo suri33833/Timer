@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      .main {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        place-items: center;
+      }
+      .center {
+        height: 50%;
+        width: 30%;
+        color: white;
+      }
+      .time {
+        display: flex;
+      }
+      h2 {
+        text-align: center;
+        background-color: green;
+      }
+      .item {
+        background-color: blue;
+        width: 100%;
+        margin: 3px 1px;
+        text-align: center;
+      }
+      h4 {
+        background-color: black;
+        /* height: 30px; */
+        /* margin-top: 5px; */
+        padding: 4px 0px;
+      }
+      h3 {
+        padding: 3px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="center">
+        <h2 id="heading">Surya's Birthday Coming</h2>
+        <div class="time">
+          <div class="item">
+            <h3 id="days"></h3>
+            <h4>Days</h4>
+          </div>
+          <div class="item">
+            <h3 id="hours"></h3>
+            <h4>Hours</h4>
+          </div>
+          <div class="item">
+            <h3 id="minutes"></h3>
+            <h4>Minutes</h4>
+          </div>
+          <div class="item">
+            <h3 id="seconds"></h3>
+            <h4>Seconds</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        "use strict"
+        let day = document.getElementById("days");
+        let hour = document.getElementById("hours");
+      let minute = document.getElementById("minutes");
+      let second = document.getElementById("seconds");
+      
+      let target = new Date(2023, 2,27);
+      setInterval(() => {
+        let ctime = new Date();
+        let diff = target - ctime;
+        if (diff > 0) {
+
+          let t = parseInt(diff / (1000 * 60 * 60 * 24));
+          if (t < 10) {
+            day.innerHTML = `0${t}`;
+          } else {
+            day.innerHTML = `${t}`;
+        }
+          t = parseInt((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          if (t < 10) {
+            hour.innerHTML = `0${t}`;
+          } else {
+            hour.innerHTML = `${t}`;
+          }
+          t = parseInt((diff % (1000 * 60*60)) / (1000*60));
+          if (t < 10) {
+            minute.innerHTML = `0${t}`;
+          } else {
+            minute.innerHTML = `${t}`;
+          }
+          t = parseInt((diff % (1000 * 60)) / 1000);
+          if (t < 10) {
+              second.innerHTML = `0${t}`;
+            } else {
+                second.innerHTML = `${t}`;
+            }
+        } else {
+            let timeDiv = document.querySelector(".time");
+            document.querySelector("#heading").innerHTML = "Happy New Year 2024";
+            let center = document.querySelector(".center");
+            center.removeChild(time);
+        }
+    }, 1000);
+    </script>
+  </body>
+  </html>
