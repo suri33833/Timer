@@ -73,6 +73,18 @@ input {
 label {
   background-color: rgb(195, 156, 174);
 }
+.circle {
+  width: 100px;
+  aspect-ratio: 1/1;
+  border: 2px solid rgb(27, 27, 149);
+  border-radius: 50%;
+  background: conic-gradient(blue 10deg, white 0deg);
+}
+#circle1 {
+}
+#circle2 {
+  position: absolute;
+}
 #button:hover {
   background-color: green;
   border: solid 4px rgb(83, 47, 51);
